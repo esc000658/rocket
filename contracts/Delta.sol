@@ -4,61 +4,59 @@ pragma solidity ^0.4.24;
 
 contract Delta {
 
-    // DATOS DEL ITEM
-    uint precio_base;
-    string  item;
-    bool open;
-    uint time_fin;
-    address  owner;
+    // ITEM DATA
+    uint starting_price;
+    string item;
+    bool open_game;
+    uint end_time;
+    address owner;
 
-    // DATOS DEL JUGADOR
-    string nombre;
-    string email;
-    address  dir;
-    uint precio_oferta;
+    // PLAYER DATA
+    string players_name;
+    string players_email;
+    address player_address;
+    uint offered_price;
 
-    // MENSAJES
-    event datos_oferta(string o_item, uint o_precio, address o_dir, uint fin, bool state);
-    event ultimo_ofertante(address my_dir, string my_email, uint my_monto);
+    // MESSAGES
+    event offer_info(string o_item, uint o_price, address o_address, uint o_ended, bool o_state);
+    event last_bidder(address my_address, string my_email, uint my_monto);
 
     constructor() public {
-      owner = msg.sender; //dato temporal cuante del dueño del item
-      dir = owner;
-      precio_base = 10 * 1000000000000000000;
-      item = "PROYECTO_0X001";
-      open = true;
-      time_fin = now + (60*60*24*7); //86400;
+      owner = msg.sender; //temporary data, account of the owner of the item
+      player_address = owner;
+      starting_price = 10 * 1000000000000000000;
+      item = "PROJECT_0X001";
+      open_game = true;
+      end_time = now + (60*60*24*7); //86400;
 
-      nombre = "Sin Participantes";
-      email = "No Registrado";
-      precio_oferta = precio_base+1;
-      //precio_oferta = 0;
+      players_name = "Without Participants";
+      players_email = "Not registered";
+      offered_price = starting_price+1;
 
-      emit datos_oferta(item, precio_base, owner, time_fin, open);
-      //emit ultimo_ofertante(dir, "email aun no registrado", precio_oferta);
-      emit ultimo_ofertante(dir, "email aun no registrado", 0);
+      emit offer_info(item, starting_price, owner, end_time, open_game);
+      emit last_bidder(player_address, "Player email not yet registered", 0);
     }
 
-    function ofertar (string memory _email) public payable{
-      if((msg.value < precio_oferta) && (msg.value  <= precio_base) && open){
-          // retorna dinero al anteriro jugador
-          dir.transfer(address(this).balance-msg.value);
-          // actualiza nuevo datos
-          dir = msg.sender;
-          email = _email;
-          precio_oferta = msg.value;
-          emit ultimo_ofertante(dir, email, precio_oferta);
+    function make_an_offer (string memory _players_email) public payable{
+      if((msg.value < offered_price) && (msg.value  <= starting_price) && open_game){
+          // return money to the previous player
+          player_address.transfer(address(this).balance-msg.value);
+          // update new player data
+          player_address = msg.sender;
+          players_email = _players_email;
+          offered_price = msg.value;
+          emit last_bidder(player_address, players_email, offered_price);
       }else{
         revert();
       }
     }
 
-    function terminar_subasta(uint time) public payable{
+    function finish_auction(uint time) public payable{
         if(time <= 0){
-            open = false;
+            open_game = false;
             owner.transfer(address(this).balance-msg.value);
-            emit datos_oferta(item, precio_base, owner, time_fin, open);
-            emit ultimo_ofertante(dir, email, precio_oferta);
+            emit offer_info(item, starting_price, owner, end_time, open_game);
+            emit last_bidder(player_address, players_email, offered_price);
         }
     }
 }

@@ -24,21 +24,22 @@ contract Delta {
     constructor() public {
       owner = msg.sender; //dato temporal cuante del dueño del item
       dir = owner;
-      precio_base = 0.2 * 1000000000000000000;
-      item = "ITEM_0X001";
+      precio_base = 10 * 1000000000000000000;
+      item = "PROYECTO_0X001";
       open = true;
       time_fin = now + (60*60*24*7); //86400;
 
-      nombre = "Sin Jugador";
+      nombre = "Sin Participantes";
       email = "No Registrado";
-      precio_oferta = 0;
+      precio_oferta = precio_base+1;
+      //precio_oferta = 0;
 
       emit datos_oferta(item, precio_base, owner, time_fin, open);
-      emit ultimo_ofertante(dir, "email aun no registrado", precio_oferta);
+      emit ultimo_ofertante(dir, "email aun no registrado", 0);
     }
 
     function ofertar (string memory _email) public payable{
-      if((msg.value  > precio_oferta) && (msg.value  >= precio_base) && open){
+      if((msg.value < precio_oferta) && (msg.value  <= precio_base) && open){
           // retorna dinero al anteriro jugador
           dir.transfer(address(this).balance-msg.value);
           // actualiza nuevo datos
