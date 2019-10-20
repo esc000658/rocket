@@ -90,7 +90,7 @@ Existen muchas maneras de poner tu `Smart-Contracts` sobre alguna de las redes d
     ```
     Iniciamos geth en la red Ropsten (no cerrar el terminal y que esto crea la conexión con la red ethereum).
     ```git
-      $ geth --testnet --syncmode "light" --rpc --rpcapi db,eth,net,web3,personal --cache=1024
+      $ geth --testnet --syncmode "light" --rpc --rpcapi db,eth,net,web3,personal --cache=1024 --allow-insecure-unlock
     ```
     En otro terminal accedemos al nodo una vez que este se haya sincronizado y descargado todos los datos.
     ```git
@@ -103,16 +103,23 @@ Existen muchas maneras de poner tu `Smart-Contracts` sobre alguna de las redes d
     > **Nota**: Su nueva cuenta tiene que estas protegida. Por lo que necesitas crear una contraseña.
     ```git
      Passphrase:
-     Repeat passphrase: 
+     Repeat passphrase:
      "0x05204abe320e1d45c229cecd395daf13a4f58f52"
 
     ```
-    
+
     Concedemos permisos para truffle puede acceder a nuestra cuenta (realizamos esto cada vez que quieras desplegar un Smart Contract)
     ```git
       > personal.unlockAccount(eth.accounts[0])
       true
     ```
+
+    Verificamos nuestro balance
+    ```git
+      > web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+      true
+    ```
+
 
 ### Instalación del Proyecto
 
@@ -141,7 +148,7 @@ Existen muchas maneras de poner tu `Smart-Contracts` sobre alguna de las redes d
     ```
     - Si Usamos geth podemos desplegar con este comando:
     ```git
-      $ truffle migrate --network rospten --reset
+      $ truffle migrate --network ropsten --reset
     ```
   - Accedemos por consola a la dirección de nuestro proyecto y ejecutamos estos comando, para compilar desplegar el Smart Contract.
   ```git

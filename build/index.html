@@ -13,15 +13,15 @@
   <script src="./app.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="./stylesheets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../app/stylesheets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="./stylesheets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../app/stylesheets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-  <link href="./stylesheets/css/coming-soon.min.css" rel="stylesheet">
+  <link href="../app/stylesheets/css/coming-soon.min.css" rel="stylesheet">
 
 </head>
 
@@ -29,7 +29,7 @@
 
   <div class="overlay"></div>
   <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="./stylesheets/mp4/bg.mp4" type="video/mp4">
+    <source src="../app/stylesheets/mp4/bg.mp4" type="video/mp4">
   </video>
 
   <div class="masthead" style="zoom: 0.80;">
@@ -41,38 +41,38 @@
           <div id="alertp" class="alert alert-warning" role="alert">
                 <strong>Cuidado!</strong> Recuerda que necesitas instalar metamask y conectarte a la red correspondiente: main, ropsten ,rinkeby ,local u otra para poder participar!
           </div>
-          <div id="contenidop" class="masthead-content text-white py-5 py-md-0">
+          <div id="contentp" class="masthead-content text-white py-5 py-md-0">
 
             <center><h1 class="mb-3">Bienvenido!</h1></center>
-            <p>Esta Dapp es una prueba de concepto en la que estamos haciendo publica la licitación <strong>“PROYECTO_0X001”</strong>, las características del proyecto son las siguientes:</p>
-            <p>
+              <p>Esta Dapp es una prueba de concepto en la que estamos haciendo publica la licitación <strong>“PROYECTO_0X001”</strong>, las características del proyecto son las siguientes:</p>
+              <p>
                 <strong>
-                  Código del Proyecto: <span id="f_producto" >NaN</span><br>
-                  Presupuesto Máximo: <span id="f_precio" >NaN</span><br>
-                  Interesado: <span id="f_casa" >NaN</span><br>
+                  Código del Proyecto: <span id="f_product" >NaN</span><br>
+                  Presupuesto Máximo: <span id="f_price" >NaN</span><br>
+                  Interesado: <span id="f_home" >NaN</span><br>
                 </strong>
               </p>
-            <h4 class="mb-3" id="f_estado_jugador">Ultimo Participante</h4>
+            <h4 class="mb-3" id="f_player_state">Ultimo Participante</h4>
             <p><strong>
-                  Oferta: <span id="f_oferta" >NaN</span>
+                  Oferta: <span id="f_offer" >NaN</span>
                   <br>
                   Email: <span id="f_email" >NaN</span>
                   <br>
                   <span id="f_wallet" >NaN</span>
             </strong></p>
 
-            <div id="formulario">
+            <div id="formp">
               <center>
                 <strong><h4 class="mb-3">Tiempo Restante: <span id="f_time" >NaN</span><br></h4></strong>
               </center>
 
 
-              <div id="sub_formulario">
+              <div id="sub_formp">
                 <div class="input-group input-group-newsletter">
                   <input id="fi_email" type="email" class="form-control" placeholder="Ingrese su email...">
                 </div><br>
                 <div class="input-group input-group-newsletter">
-                  <input id="fi_monto" type="number" class="form-control" placeholder="Ingrese un monto...">
+                  <input id="fi_mount" type="number" class="form-control" placeholder="Ingrese un monto...">
                   <div class="input-group-append">
                     <button class="btn btn-secondary" type="submit" onclick="App.play()">Ofertar!</button>
                   </div>
@@ -82,7 +82,7 @@
 
             </div>
             <center><strong><p id="f_status" class="mt-5 mb-3 ">-The game isn't enable here-</p></strong>
-            <button id="f_terminar" class="btn btn-secondary" type="submit" onclick="App.terminar_j()">Finalizar</button></center>
+            <button id="f_finish" class="btn btn-secondary" type="submit" onclick="App.terminar_j()">Finalizar</button></center>
           </div>
 
         </div>
@@ -106,11 +106,11 @@
   </div>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="./stylesheets/vendor/jquery/jquery.min.js"></script>
-  <script src="./stylesheets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../app/stylesheets/vendor/jquery/jquery.min.js"></script>
+  <script src="../app/stylesheets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="./stylesheets/js/coming-soon.min.js"></script>
+  <script src="../app/stylesheets/js/coming-soon.min.js"></script>
 
   <script>
     /* * * * * * * * * * * * * * * * * *
