@@ -123,7 +123,7 @@ window.App = {
           offered_product.innerHTML = event.args.o_item.valueOf();
           offered_price.innerHTML = event.args.o_price.valueOf()/1000000000000000000 + " ETH";
           offered_wallet.innerHTML = event.args.o_address.valueOf();
-          offered_status = event.args.state.valueOf();
+          offered_status = event.args.o_state.valueOf();
           var gamer_status = document.getElementById("f_player_state")
           let now= Date.now() / 1000 | 0;
           //offered_status = false;
@@ -133,7 +133,7 @@ window.App = {
             console.log("Bidding is Open");
             setEstado("Bidding is Open");
             gamer_status.innerHTML = "Last player"
-            n = event.args.fin.valueOf() - now;
+            n = event.args.o_ended.valueOf() - now;
             if(n<=0){
               document.getElementById("f_finish").style.visibility="visible";
             }
@@ -186,7 +186,7 @@ window.App = {
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
+  if ((typeof web3 !== 'undefined') || (typeof window.ethereum !== 'undefined') || (typeof window.web3 !== 'undefined')){
     console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
