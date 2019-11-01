@@ -116,10 +116,12 @@ window.App = {
           }
           //terminar.parentNode.removeChild(terminar);
 
-          var offered_product = document.getElementById("f_product")
+          var offered_product_title = document.getElementById("f_product")
+          var offered_product = document.getElementById("f_project")
           var offered_price = document.getElementById("f_price")
           var offered_wallet = document.getElementById("f_home")
           var offered_time = document.getElementById("f_time")
+          offered_product_title.innerHTML = event.args.o_item.valueOf();
           offered_product.innerHTML = event.args.o_item.valueOf();
           offered_price.innerHTML = event.args.o_price.valueOf()/1000000000000000000 + " ETH";
           offered_wallet.innerHTML = event.args.o_address.valueOf();
@@ -183,11 +185,11 @@ window.App = {
 
 };
 
-
+/*
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if ((typeof web3 !== 'undefined') || (typeof window.ethereum !== 'undefined') || (typeof window.web3 !== 'undefined')){
-    console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
+  if (typeof web3 != 'undefined'){
+    console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask");
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
   } else {
@@ -195,6 +197,24 @@ window.addEventListener('load', function() {
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
   }
+  App.start();
+});*/
+
+window.addEventListener("load", function() {
+  if (window.ethereum) {
+    // use MetaMask's provider
+    App.web3 = new Web3(window.ethereum);
+    window.ethereum.enable(); // get permission to access accounts
+  } else {
+    console.warn(
+      "No web3 detected. Falling back to http://127.0.0.1:8545. You should remove this fallback when you deploy live",
+    );
+    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+    App.web3 = new Web3(
+      new Web3.providers.HttpProvider("http://127.0.0.1:8545"),
+    );
+  }
+
   App.start();
 });
 

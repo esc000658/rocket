@@ -1,7 +1,6 @@
 //pragma solidity >=0.4.21 <0.6.0;
 pragma solidity ^0.4.24;
 
-
 contract Delta {
 
     // ITEM DATA
@@ -27,7 +26,7 @@ contract Delta {
       starting_price = 10 * 1000000000000000000;
       item = "PROJECT_0X001";
       open_game = true;
-      end_time = now + (60*60*24*7); //86400;
+      end_time = now + (60*60*24*30); //86400;
 
       players_name = "Without Participants";
       players_email = "Not registered";
