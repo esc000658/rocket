@@ -27,15 +27,15 @@ In this project we present a tender where we hope to find someone who offers a s
     $ tree roulette
     roulette/
     ├── .git	: git
-    ├── app	: Directory, where all the logic of the project, we call
-    |         the Smart Contracts and design the views.
+    ├── app		: Directory, where all the logic of the project, we call
+    |    		  the Smart Contracts and design the views.
     ├── build	: File to run in production.
     ├── contracts	: Directory of Solidity contracts.
     ├── migrations	: Directory of script implementation files.
     ├── test	: Directory of test files to test your application and contracts.
     ├── node_modules	: Node components
     ├── truffle.js	: Truffle configuration file.
-    └── webpack.config.js	: Instance configuration file and plugins for our project.
+    ├── webpack.config.js	: Instance configuration file and plugins for our project.
     └── README.md	: Default README file.
 
 
