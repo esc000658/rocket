@@ -61,7 +61,7 @@ window.App = {
     setEstado("Executing transaction... (please wait)");
     // document.getElementById("loader").style.visibility="visible";   //visible
     Delta.deployed().then(function(instance) {
-      return instance.ofertar(email, {
+      return instance.make_an_offer(email, {
         from: account,
         value: web3.toWei(mount, "ether"),
         gas: 150000
@@ -81,7 +81,7 @@ window.App = {
     setEstado("Closing Smart Contract ... (please wait)");
     // document.getElementById("loader").style.visibility="visible";   //visible
     Delta.deployed().then(function(instance) {
-      return instance.terminar_subasta(n, {
+      return instance.finish_auction(n, {
         from: account,
         value: web3.toWei(0, "ether"),
         gas: 150000
