@@ -62,7 +62,7 @@ In this project we present a tender where we hope to find someone who offers a s
     $ sudo npm install -g truffle@4.1.13
   ```
 - In your browser install [MetaMask][Metamask] (to run Smart Contracts)
-  ![Match function](https://user-images.githubusercontent.com/7105645/46318508-5f586a00-c59c-11e8-8889-4e2a71f16cd4.PNG)
+  ![Match function](https://miro.medium.com/max/724/1*94hxI1C25hV6By_wyZhoNg.png)
 
 - Install an Ethereum node on your computer, so you can use it locally.
 
@@ -159,10 +159,10 @@ Access the website of our project (http://188.166.116.72) or the one you deploye
 
   > **Remember**: To choose the Ropsten network and enable the rocket project in Metamasks
 
-  ![Match function](https://cdn-images-1.medium.com/max/1120/1*75KXDVrE50xLgHGbwPQxgw.png)
+  ![Match function](https://miro.medium.com/max/1229/1*I-hOraN_b4BOH8ZHwJ01Vw.png)
 
 
-  ![Match function](https://cdn-images-1.medium.com/max/1120/1*7Q8cx9SFm6xHqNoE3fgKrg.png)
+  ![Match function](https://miro.medium.com/max/1229/1*rrczpmYywTiauPSPePCP4Q.png)
 
 
 ## Conclusion  
