@@ -1,4 +1,4 @@
-# Rocket: a new way of bidding, selling or bidding on the blockchain
+# Rocket: a new way to sell, auction or bid on blockchain
 
 Smart Contracts are applications that run on the Ethereum virtual machine. That is nothing other than a decentralized `world computer` in which` each node of the Ethereum Blockchain` provides their computational power to sustain the network (Blockchain).
 

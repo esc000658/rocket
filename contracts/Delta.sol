@@ -23,21 +23,21 @@ contract Delta {
     constructor() public {
       owner = msg.sender; //temporary data, account of the owner of the item
       player_address = owner;
-      starting_price = 10 * 1000000000000000000;
+      starting_price = 3 * 1000000000000000000;
       item = "PROJECT_0X001";
       open_game = true;
       end_time = now + (60*60*24*30); //2592000;
 
       players_name = "Without Participants";
       players_email = "Not registered";
-      offered_price = starting_price+1;
+      offered_price = 0;
 
       emit offer_info(item, starting_price, owner, end_time, open_game);
       emit last_bidder(player_address, "Player email not yet registered", 0);
     }
 
     function make_an_offer (string memory _players_email) public payable{
-      if((msg.value < offered_price) && (msg.value  <= starting_price) && open_game){
+      if((msg.value > offered_price) && (msg.value  >= starting_price) && open_game){
           // return money to the previous player
           player_address.transfer(address(this).balance-msg.value);
           // update new player data
